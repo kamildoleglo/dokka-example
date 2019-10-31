@@ -51,7 +51,16 @@ kotlin {
 }
 
 tasks {
+    val dokkaOutputDir = "dokka"
+
+    val clean = getByName("clean", Delete::class){
+        delete(rootProject.buildDir)
+        delete(dokkaOutputDir)
+    }
+
     val dokka by getting(DokkaTask::class) {
+        dependsOn(clean)
+
         outputDirectory = "dokka"
         outputFormat = "html"
 

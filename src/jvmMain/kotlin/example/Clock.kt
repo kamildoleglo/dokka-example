@@ -13,6 +13,8 @@ actual class Clock {
     fun onlyJVMFunction(): Double = 2.5
 }
 
+fun clockList() = listOf(Clock())
+
 fun main() {
     Greeter().greet().also { println(it) }
 }

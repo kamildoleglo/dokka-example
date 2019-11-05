@@ -61,7 +61,7 @@ tasks {
     val dokka by getting(DokkaTask::class) {
         dependsOn(clean)
 
-        outputDirectory = "dokka"
+        outputDirectory = dokkaOutputDir
         outputFormat = "html"
 
         multiplatform {

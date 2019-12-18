@@ -3,7 +3,7 @@ import org.jetbrains.dokka.gradle.DokkaTask
 plugins {
     id("java")
     id("org.jetbrains.kotlin.multiplatform") version "1.3.50"
-    id("org.jetbrains.dokka") version "0.10.1-SNAPSHOT"
+    id("org.jetbrains.dokka") version "0.11.0-SNAPSHOT"
 }
 
 group = "org.jetbrains.dokka"

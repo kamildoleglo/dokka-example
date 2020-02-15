@@ -1,6 +1,6 @@
 package example
 
-class House(val street: String, val number: Int) {
+data class House(val street: String, val number: Int) {
 
     /**
      * The owner of the house

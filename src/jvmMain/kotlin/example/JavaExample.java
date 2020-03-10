@@ -6,28 +6,23 @@ import java.util.List;
 /**
  * Sample Java example
  */
-public class JavaExample {
-
-    /**
-     * Jakieś randomowe property
-     */
-    public String aa;
+public class JavaExample extends JavaBaseExample {
 
     public JavaExample(String a) {
-        aa = a;
+        super(a);
     }
 
     /**
-     * Funkcja nicnierobiąca
+     * Funkcja przeładowana nicnierobiąca
+     * @param a ddd
+     * @param b ddd
      */
-    public List<String> cokolwiek(String a, House b) {
+    @Override
+    protected List<String> cokolwiek(String a, House b) {
         return new ArrayList<String>();
     }
 
-    class JavaExampleSubClass {
+    protected void tralala() {}
 
-        public void Cokolwiek2(ParticularClock clock) {
-
-        }
-    }
+    private void Mytralala() {}
 }

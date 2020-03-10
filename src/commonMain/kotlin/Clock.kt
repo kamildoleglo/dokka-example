@@ -9,7 +9,7 @@ expect open class Clock() {
     /**
      * Time in minis
      */
-    fun getTimesInMillis(): String
+    protected fun getTimesInMillis(): String
     fun getYear(): String
 }
 

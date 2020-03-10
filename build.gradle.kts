@@ -11,14 +11,15 @@ version = "1.0-SNAPSHOT"
 
 
 repositories {
-    mavenLocal()
     mavenCentral()
+    mavenLocal()
 }
 
 val dokkaPlugins by configurations.getting
 
 dependencies {
     testCompile(group ="junit", name = "junit", version = "4.12")
+    dokkaPlugins("org.jetbrains.dokka:dokka-base:0.11.0-SNAPSHOT")
     dokkaPlugins("org.jetbrains.dokka:mathjax-plugin:0.11.0-SNAPSHOT")
 }
 

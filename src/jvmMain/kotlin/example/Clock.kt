@@ -2,9 +2,11 @@ package example
 
 import greeteer.Greeter
 
-actual open class Clock {
-    actual fun getTime(): String = System.currentTimeMillis().toString()
-    actual fun getTimesInMillis(): String = System.currentTimeMillis().toString()
+open class CertainlyNotClock {
+    val x: String = ""
+    fun String.tst() = ""
+    fun getTime(): String = System.currentTimeMillis().toString()
+    fun getTimesInMillis(): String = System.currentTimeMillis().toString()
 
     /**
      * Documentation for onlyJVMFunction on...
@@ -12,6 +14,7 @@ actual open class Clock {
      * ...JVM!
      */
     fun onlyJVMFunction(): Double = 2.5
+
     /**
      * Custom equals function
      */
@@ -19,13 +22,21 @@ actual open class Clock {
         return super.equals(other)
     }
 
+    @Deprecated("deprecated", level = DeprecationLevel.ERROR, replaceWith = ReplaceWith("nothing"))
     open fun getDayOfTheWeek(): String {
         TODO("not implemented")
     }
-    actual fun getYear(): String {
+
+    fun getYear(): String {
         TODO("not implemented")
     }
 }
+
+actual typealias Clock = CertainlyNotClock
+
+interface TestInterface
+
+class TestClassImplementsInterface : TestInterface
 
 fun clockList() = listOf(Clock())
 

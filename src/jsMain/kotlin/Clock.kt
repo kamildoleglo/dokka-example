@@ -14,6 +14,16 @@ actual open class Clock {
     actual fun getYear(): String {
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
+
+    actual val x: String
+        get() = TODO("Not yet implemented")
+
+    /**
+     * Time in minis
+     */
+    actual fun String.tst(): String {
+        TODO("Not yet implemented")
+    }
 }
 
 fun main() {

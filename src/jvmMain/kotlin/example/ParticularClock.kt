@@ -2,10 +2,13 @@ package example
 
 import greeteer.Greeter
 
-class ParticularClock(private val clockDay: ClockDays) : Clock() {
+interface InterfaceToInheritFrom
+
+class ParticularClock(private val clockDay: ClockDays) : Clock(0), InterfaceToInheritFrom {
 
     /**
      * Rings bell [times]
+     *
      */
     fun ringBell(times: Int) {}
 
@@ -30,3 +33,5 @@ class ParticularClock(private val clockDay: ClockDays) : Clock() {
 fun Clock.extensionFun() {
 
 }
+
+class AnotherParticularClock : InterfaceToInheritFrom

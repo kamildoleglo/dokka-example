@@ -2,9 +2,38 @@ package example
 
 import greeteer.Greeter
 
-actual open class Clock {
+
+/**
+ * JVM actual class
+ *
+ *
+ * @sample samples.Samples.jvm
+ * @see example.ParticularClock You should really look into that class but in JVM
+ */
+actual open class Clock actual constructor(val int: Int, val string: String) {
+
+    /**
+     * JVM section of secondary constructor with only String
+     *
+     * @param string name of the Clock but in JVM
+     */
+    actual constructor(string: String) : this(0, string)
+
+    actual constructor(int: Int) : this(int, "JVM Clock")
+
     actual fun getTime(): String = System.currentTimeMillis().toString()
+
+    /**
+     * JVM function to retrieve Millis
+     */
     actual fun getTimesInMillis(): String = System.currentTimeMillis().toString()
+
+    /**
+     * JVM implementation for extension function
+     *
+     * @receiver JVM receiver is time given in seconds
+     */
+    actual fun Int.extension(): String = "JVM"
 
     /**
      * Documentation for onlyJVMFunction on...
@@ -12,6 +41,7 @@ actual open class Clock {
      * ...JVM!
      */
     fun onlyJVMFunction(): Double = 2.5
+
     /**
      * Custom equals function
      */
@@ -25,9 +55,20 @@ actual open class Clock {
     actual fun getYear(): String {
         TODO("not implemented")
     }
+
+    /**
+     * Sample function with three params
+     *
+     * @param a JVM simple int
+     * @param b JVM another simple int
+     * @param c JVM last of these simple ints
+     */
+    actual fun threeParams(a: Int, b: Int, c: Int) = a * b * c
+
+    actual fun <T> Int.foo(bar: T?): Unit = println("JVM")
 }
 
-fun clockList() = listOf(Clock())
+fun clockList() = listOf(Clock(0))
 
 fun main() {
     Greeter().greet().also { println(it) }

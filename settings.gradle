@@ -2,11 +2,13 @@ pluginManagement {
     resolutionStrategy {
         eachPlugin {
             if (requested.id.id == "org.jetbrains.dokka") {
-                useModule("org.jetbrains.dokka:dokka-gradle-plugin:${requested.version}")
+                useModule("org.jetbrains.dokka:dokka-gradle-plugin:$requested.version")
             }
         }
     }
     repositories {
+        maven{ url 'https://dl.bintray.com/kotlin/kotlin-dev'}
+        maven{url "https://dl.bintray.com/kotlin/kotlin-eap"}
         mavenLocal()
         gradlePluginPortal()
     }

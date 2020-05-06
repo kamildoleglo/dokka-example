@@ -2,22 +2,26 @@ import org.jetbrains.dokka.gradle.DokkaTask
 
 plugins {
     id("java")
-    id("org.jetbrains.kotlin.multiplatform") version "1.3.50"
-    id("org.jetbrains.dokka") version "0.11.0-SNAPSHOT"
+    id("org.jetbrains.kotlin.multiplatform") version "1.4-M2-eap-70"
+    id("org.jetbrains.dokka") version "0.11.0-dev-41"
 }
 
 group = "org.jetbrains.dokka"
 version = "1.0-SNAPSHOT"
 
 repositories {
+    maven("https://dl.bintray.com/kotlin/kotlin-dev")
+    maven("https://dl.bintray.com/kotlin/kotlin-eap")
     mavenCentral()
     mavenLocal()
     jcenter()
 }
+//val dokkaPlugins by configurations.getting
 
 dependencies {
-    testCompile(group ="junit", name = "junit", version = "4.12")
-    dokkaPlugins("org.jetbrains.dokka:mathjax-plugin:0.11.0-SNAPSHOT")
+    testImplementation(group ="junit", name = "junit", version = "4.12")
+    dokkaPlugins("org.jetbrains.dokka:dokka-base:0.11.0-dev-41")
+//    dokkaPlugins("org.jetbrains.dokka:mathjax-plugin:0.11.0-SNAPSHOT")
 }
 
 kotlin {
@@ -49,6 +53,9 @@ kotlin {
                 implementation(kotlin("stdlib-js"))
             }
         }
+        val linuxX64Main by getting{
+            dependsOn(commonMain)
+        }
     }
 }
 
@@ -68,6 +75,8 @@ tasks {
 
 
         multiplatform {
+            val common by creating {}
+            val jvmAndJsSecondCommon by creating{}
             val js by creating {
                 includes = listOf("src/jsMain/resources/doc.md")
 

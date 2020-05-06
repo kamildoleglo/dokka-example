@@ -1,5 +1,7 @@
 package example
 
+import greeteer.Executor
+
 /**
  * @constructor Native constructor
  * @param int native integer param
@@ -39,4 +41,8 @@ actual open class Clock actual constructor(val int: Int, val string: String) {
     actual fun threeParams(a: Int, b: Int, c: Int) = a + b + c
 
     actual fun <T> Int.foo(bar: T?): Unit = Unit
+}
+
+fun main() {
+    println("Kotlin for Linux/${Executor().run()}")
 }

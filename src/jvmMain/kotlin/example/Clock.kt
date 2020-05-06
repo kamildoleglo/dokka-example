@@ -1,7 +1,8 @@
 package example
 
+import greeteer.Executor
 import greeteer.Greeter
-
+import greeteer.Platform
 
 /**
  * JVM actual class
@@ -72,4 +73,5 @@ fun clockList() = listOf(Clock(0))
 
 fun main() {
     Greeter().greet().also { println(it) }
+    println("Kotlin for ${Platform().getPlatform()}/${Executor().run()}")
 }

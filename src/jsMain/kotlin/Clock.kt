@@ -1,6 +1,8 @@
 package example
 
+import greeteer.Executor
 import greeteer.Greeter
+import greeteer.Platform
 import kotlin.js.Date
 
 /**
@@ -45,4 +47,5 @@ actual open class Clock actual constructor(val int: Int, val string: String) {
 
 fun main() {
     Greeter().greet().also { println(it) }
+    println("Kotlin for ${Platform().getPlatform()}/${Executor().run()}")
 }

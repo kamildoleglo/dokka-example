@@ -43,3 +43,19 @@ fun clockList() = listOf(Clock())
 fun main() {
     Greeter().greet().also { println(it) }
 }
+
+actual typealias ClockInterface = TestInterface
+
+enum class TestEnum
+actual typealias ClockEnum = TestEnum
+
+object TestObject
+actual typealias ClockObject = TestObject
+
+/**
+ * JVM documentation
+ */
+actual fun spanishInquisition() {}
+
+actual annotation class A
+class Baz

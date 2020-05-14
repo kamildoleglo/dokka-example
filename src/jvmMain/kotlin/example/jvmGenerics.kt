@@ -8,6 +8,11 @@ class Foo<out T : Comparable<*>, R : List<Bar<*>>>
 // same signature
 //fun <T, R> Foo<Comparable<*>, *>.baz(a : T): T where T : List<*>, T: Comparable<*> = kotlin.TODO()
 //fun <T, R> Foo<Comparable<*>, *>.baz(a : T): T where T: List<*> = kotlin.TODO()
+/**
+ * Same comment
+ */
+fun <T> Foo<Comparable<*>, *>.baz(a: T): T where T : List<Comparable<Int>> = kotlin.TODO()
+//fun <T> Foo<Comparable<*>, *>.baz(a: T): T where T : List<Comparable<Bar<*>>> = kotlin.TODO()
 
 // same signature
 //inline fun <reified T, R> Foo<Comparable<*>, *>.baz(a: T): T where T : List<Comparable<Int>> = kotlin.TODO()

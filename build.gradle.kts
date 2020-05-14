@@ -2,7 +2,7 @@ import org.jetbrains.dokka.gradle.DokkaTask
 
 plugins {
     id("java")
-    id("org.jetbrains.kotlin.multiplatform") version "1.3.60"
+    id("org.jetbrains.kotlin.multiplatform") version "1.3.70"
     id("org.jetbrains.dokka") version "0.11.0-SNAPSHOT"
 }
 
@@ -18,7 +18,7 @@ repositories {
 }
 
 dependencies {
-    testCompile(group = "junit", name = "junit", version = "4.12")
+    testImplementation(group = "junit", name = "junit", version = "4.12")
 //    dokkaPlugins("org.jetbrains.dokka:mathjax-plugin:0.11.0-SNAPSHOT")
 //    dokkaPlugins("org.jetbrains.dokka:kotlin-as-java-plugin:0.11.0-SNAPSHOT")
 //    dokkaPlugins(project(":mergeFunctions"))
@@ -79,12 +79,45 @@ tasks {
         dependsOn(clean)
         outputDirectory = dokkaOutputDir
         outputFormat = "html"
-
-        multiplatform {
-//            val js by creating {}
-            val jvm by creating {}
-//            val macosX64 by creating {}
-//            val common by creating {}
+        dokkaSourceSets {
+//            val js by creating {
+//                sourceSetName = "JS"
+//                sourceRoot {
+//                    path = "/Users/kamildoleglo/IdeaProjects/example/src/jsMain/kotlin"
+//                }
+//                sourceRoot {
+//                    path = "/Users/kamildoleglo/IdeaProjects/example/src/commonMain/kotlin"
+//                }
+//                classpath = listOf(
+//                    "/Users/kamildoleglo/IdeaProjects/example/src/jsMain/kotlin",
+//                    "/Users/kamildoleglo/IdeaProjects/example/src/commonMain/kotlin"
+//                )
+//                platform = "js"
+//            }
+//            val jvm by creating {
+//                sourceSetName = "JVM"
+//                sourceRoot {
+//                    path = "/Users/kamildoleglo/IdeaProjects/example/src/jvmMain/kotlin"
+//                }
+//                sourceRoot {
+//                    path = "/Users/kamildoleglo/IdeaProjects/example/src/commonMain/kotlin"
+//                }
+//                classpath = listOf(
+//                    "/Users/kamildoleglo/IdeaProjects/example/src/jvmMain/kotlin",
+//                    "/Users/kamildoleglo/IdeaProjects/example/src/commonMain/kotlin"
+//                )
+//                platform = "jvm"
+//            }
+//            val macosX64Main by creating {}
+//            val common by creating {
+//                sourceRoot {
+//                    path = "/Users/kamildoleglo/IdeaProjects/example/src/commonMain/kotlin"
+//                }
+//                classpath = listOf("/Users/kamildoleglo/IdeaProjects/example/src/commonMain/kotlin")
+//                platform = "common"
+//            }
+            val jvmMain by creating {}
+            val jsMain by creating {}
         }
     }
 }

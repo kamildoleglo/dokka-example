@@ -7,7 +7,7 @@ package example
  * @param second tag
  */
 actual open class Clock actual constructor() {
-    actual fun getTime(x: Int): String {
+    actual fun getTime(): String {
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 
@@ -32,3 +32,12 @@ actual open class Clock actual constructor() {
         TODO("Not yet implemented")
     }
 }
+
+actual interface ClockInterface
+actual enum class ClockEnum
+actual object ClockObject
+
+actual fun spanishInquisition() {
+}
+
+actual annotation class A

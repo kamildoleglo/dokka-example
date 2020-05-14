@@ -30,7 +30,7 @@ package example
  */
 expect open class Clock() {
     val x: String
-    fun getTime(x: Int = 5): String
+    fun getTime(): String
     /**
      * Time in minis
      */
@@ -38,3 +38,13 @@ expect open class Clock() {
     fun getTimesInMillis(): String
     fun getYear(): String
 }
+
+expect interface ClockInterface
+
+expect enum class ClockEnum
+
+expect object ClockObject
+
+expect fun spanishInquisition()
+
+expect annotation class A

@@ -3,7 +3,7 @@ import org.jetbrains.dokka.gradle.DokkaTask
 plugins {
     id("java")
     id("org.jetbrains.kotlin.multiplatform") version "1.4-M2-eap-70"
-    id("org.jetbrains.dokka") version "0.11.0-dev-41"
+    id("org.jetbrains.dokka") version "0.11.0-SNAPSHOT"
 }
 
 group = "org.jetbrains.dokka"
@@ -16,11 +16,9 @@ repositories {
     mavenLocal()
     jcenter()
 }
-//val dokkaPlugins by configurations.getting
 
 dependencies {
     testImplementation(group ="junit", name = "junit", version = "4.12")
-    dokkaPlugins("org.jetbrains.dokka:dokka-base:0.11.0-dev-41")
 //    dokkaPlugins("org.jetbrains.dokka:mathjax-plugin:0.11.0-SNAPSHOT")
 }
 
@@ -74,10 +72,10 @@ tasks {
         outputFormat = "html"
 
 
-        multiplatform {
-            val common by creating {}
-            val jvmAndJsSecondCommon by creating{}
-            val js by creating {
+        dokkaSourceSets {
+            val commonMain by creating {}
+            val jvmAndJsSecondCommonMain by creating{}
+            val jsMain by creating {
                 includes = listOf("src/jsMain/resources/doc.md")
 
                 samples = listOf("src/jsMain/resources/Samples.kt")
@@ -88,7 +86,8 @@ tasks {
                     lineSuffix = "#L"
                 }
             }
-            val jvm by creating {
+
+            val jvmMain by creating {
                 includes = listOf("src/jvmMain/resources/doc.md")
 
                 samples = listOf("src/jsMain/resources/Samples.kt")
@@ -99,12 +98,14 @@ tasks {
                     lineSuffix = "#L"
                 }
             }
-            val linuxX64 by creating {
+
+            val linuxX64Main by creating {
                 sourceLink {
                     path = "src/linuxX64Main/kotlin"
                     url = "https://github.com/kamilok1965/dokka-example/tree/master/src/linuxX64Main/kotlin"
                     lineSuffix = "#L"
                 }
+                platform = "native"
             }
         }
     }

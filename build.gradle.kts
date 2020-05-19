@@ -13,6 +13,7 @@ repositories {
     maven("https://dl.bintray.com/kotlin/kotlin-dev")
     maven("https://dl.bintray.com/kotlin/kotlin-eap")
     mavenCentral()
+    jcenter()
     mavenLocal()
     jcenter()
 }
@@ -65,10 +66,13 @@ tasks {
         delete(dokkaOutputDir)
     }
 
+
+
     val dokka by getting(DokkaTask::class) {
         dependsOn(clean)
 
         outputDirectory = dokkaOutputDir
+
         outputFormat = "html"
 
 

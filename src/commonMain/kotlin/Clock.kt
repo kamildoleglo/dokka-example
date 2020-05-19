@@ -60,3 +60,14 @@ expect open class Clock(int: Int, string: String) {
     fun getTimesInMillis(): String
     fun getYear(): String
 }
+
+fun <T: Any, L: List<Int>> functionWithGenerics(t: T, l: L): Unit = TODO()
+
+/**
+ * Comment to function
+ * @param a comment of a
+ * @param[b] comment of b
+ */
+fun functionWithComments(a: String, b: Clock) {
+
+}

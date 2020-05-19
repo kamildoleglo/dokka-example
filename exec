@@ -1,0 +1,3 @@
+cd ../dokka
+(./gradlew check publishToMavenLocal -x test && cd ../dokka-example && ./gradlew --no-daemon --stacktrace dokka) || cd ../dokka-example
+

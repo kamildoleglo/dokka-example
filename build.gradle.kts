@@ -3,19 +3,24 @@ import java.net.URL
 
 plugins {
     id("java")
-    id("org.jetbrains.kotlin.multiplatform") version "1.3.72"
-    id("org.jetbrains.dokka") version "1.4.0-SNAPSHOT"
+    id("org.jetbrains.kotlin.multiplatform") version "1.4.20"
+    id("org.jetbrains.dokka") version "1.4.20"
 }
 
 group = "org.jetbrains.dokka"
 version = "1.0-SNAPSHOT"
 
 repositories {
-    maven("https://dl.bintray.com/kotlin/kotlin-dev")
-    maven("https://dl.bintray.com/kotlin/kotlin-eap")
     mavenCentral()
     mavenLocal()
     jcenter()
+}
+
+java {
+    toolchain {
+        languageVersion.set(JavaLanguageVersion.of(11))
+        vendor.set(JvmVendorSpec.ADOPTOPENJDK)
+    }
 }
 
 dependencies {
